@@ -1,34 +1,76 @@
+body {
+    display: flex;
+}
+
 .game-container {
     width : 500px;
     height: 730px;
     position:  absolute;
+    left: 80px
+}
 
+.border-top {
+    width: 660px;
+    height: 50px;
+    position: absolute;
+    background-color: limegreen;
+    z-index: +2;
+    top: -50px;
+}
+
+.border-left {
+    width: 80px;
+    height: 730px;
+    position: absolute;
+    background-color: limegreen;
+    z-index: +2;
+}
+
+.border-right {
+    width: 80px;
+    height: 730px;
+    position: absolute;
+    background-color: limegreen;
+    z-index: +2;
+    left: 580px;
 }
 
 .sky {
-    background-color: lightblue;
+    background-color: darkslategray;
     width: 500px;
     height: 580px;
     position: absolute;
+    z-index: -1;
 }
 
 .ground {
+    /*background-image: url(images/brickwall.jpg);*/
     background-color: brown;
+    background-size: cover;
     width: 500px;
     height: 150px;
     position: absolute;
     top: 580px;
+    z-index: +1; 
 }
 
 .hivey {
-    background-color: limegreen;
+    /*background-color: black; */ 
     position: absolute;
     height: 45px;
     width: 50px;
 }
 
 .structures {
-    background-color: blue;
+    background-image: url('images/flappybird-pipe.png');
+    width: 60px;
+    height: 300px;
+    position: absolute;
+}
+
+.topStructures {
+    background-image: url('images/flappybird-pipe.png');
+    transform : rotate(180deg);
     width: 60px;
     height: 300px;
     position: absolute;

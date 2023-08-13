@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let hiveBottom = 100;
     let gravity = 2;
     let isGameOver = false
+    let gap = 430
 
     function startGame() {
         if (!isGameOver) {
@@ -41,26 +42,35 @@ document.addEventListener('DOMContentLoaded', () => {
         let randomHeight = Math.random() * 60
         let structuresBottom = randomHeight
         const structures = document.createElement('div')
-        if (!isGameOver) structures.classList.add('structures')
+        const topStructures = document.createElement('div')
+        if (!isGameOver) {
+        structures.classList.add('structures')
+        topStructures.classList.add('topStructures')
+        }
         gameDisplay.appendChild(structures)
+        gameDisplay.appendChild(topStructures)
         structures.style.left = structuresLeft + 'px'
+        topStructures.style.left = structuresLeft + 'px'
         structures.style.bottom = structuresBottom + 'px'
+        topStructures.style.bottom = structuresBottom + gap + 'px'
 
 
         function moveStructures() {
             structuresLeft -=2
             structures.style.left = structuresLeft + 'px'
+            topStructures.style.left = structuresLeft + 'px'
 
             if (structuresLeft === -60) {
                 clearInterval(timerId)
                 gameDisplay.removeChild(structures)
+                gameDisplay.removeChild(topStructures)
             }
             if (
-                structuresLeft > 200 && structuresLeft < 280 && hiveLeft === 220 && hiveBottom < structuresBottom + 160 ||
+                structuresLeft > 200 && structuresLeft < 270 && hiveLeft === 220 && (hiveBottom < structuresBottom + 150 || hiveBottom > structuresBottom + gap -200) ||
                 hiveBottom === 0
                 ) {
                 gameOver()
-                clearInterval(TimerId)
+                clearInterval(timerId)
             }
         }
         let timerId = setInterval(moveStructures, 20)

@@ -11,8 +11,8 @@ Changing elements to fit the Hive arcade gaming community
 
 TO DO -
 
-- score list
-- collision
+- score display
+- collision improvements
 - randomized objects 
 - adding lives 
 - adding game over 
